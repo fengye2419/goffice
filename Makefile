@@ -1,4 +1,4 @@
-# GOfficer - Markdown to DOCX 转换工具 Makefile
+# GOffice - Markdown to DOCX 转换工具 Makefile
 
 # 设置变量
 BINARY_NAME=goffice
@@ -26,10 +26,16 @@ build:
 	@mkdir -p $(BUILD_DIR)
 	$(GOBUILD) -o $(BUILD_DIR)/$(BINARY_NAME) $(MAIN_DIR)/main.go
 
-# 运行测试
+# 运行测试（不包含cmd/goffice目录）
 .PHONY: test
 test:
-	@echo "运行所有测试..."
+	@echo "运行所有测试（不包含cmd/goffice目录）..."
+	$(GOTEST) -v ./internal/... ./pkg/...
+
+# 运行所有测试（包含cmd/goffice目录）
+.PHONY: test-all
+test-all:
+	@echo "运行所有测试（包含所有目录）..."
 	$(GOTEST) -v ./...
 
 # 运行特定包的测试
@@ -81,7 +87,8 @@ help:
 	@echo "可用的目标:"
 	@echo "  all        - 清理、测试并构建应用"
 	@echo "  build      - 构建应用"
-	@echo "  test       - 运行所有测试"
+	@echo "  test       - 运行所有测试（不包含cmd/goffice目录）"
+	@echo "  test-all   - 运行所有测试（包含所有目录）"
 	@echo "  test-pkg   - 运行特定包的测试 (使用: make test-pkg PKG=internal/parser)"
 	@echo "  fmt        - 格式化代码"
 	@echo "  vet        - 代码静态检查"

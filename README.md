@@ -1,4 +1,4 @@
-# GOfficer - Markdown 转 DOCX 工具
+# GOffice - Markdown 转 DOCX 工具
 
 这是一个将 Markdown 文件转换为 DOCX 文档的命令行工具，支持标题、段落、加粗文本和数学公式等元素。
 
