@@ -1,0 +1,44 @@
+# 编译后的二进制文件和构建目录
+/build/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Go特定的忽略项
+/vendor/
+/Godeps/
+.glide/
+.idea/
+*.iml
+*.swp
+*.swo
+/dist/
+
+# 本项目特定的忽略项
+/example.docx
+*.docx
+!example/sample.docx
+
+# 临时文件
+*.tmp
+*~
+.DS_Store
+Thumbs.db
+
+# 日志文件
+*.log
+
+# 配置文件（如果有特定的配置文件不想纳入版本控制）
+# config.json
+# .env
+
+# 依赖管理工具生成的文件
+go.sum
+
+# 测试覆盖文件
+coverage.txt
+profile.out 
